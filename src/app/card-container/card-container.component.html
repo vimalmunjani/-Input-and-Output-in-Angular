@@ -1,0 +1,20 @@
+<p>
+  card-container works!
+</p>
+
+  <input type="text" placeholder="Enter Count" #countInput [value]="countInParent" (keyup.enter)="enterFromInputBox(countInput.value)"/>
+
+  <input type="text" placeholder="Enter Count" #countInput2WayBining [(ngModel)] = "count2Way"/>
+
+  <button id="inc" (click)="increment()">Increment</button>
+  <button id="dec" (click)="decrement()">Decrement</button>
+ 
+<h2>countInParent -- {{ countInParent }}</h2>
+<h2>countInput (Directly referenced from Template)-- {{ countInput.value }}</h2>
+<h2>count2Way (Directly referenced from Template)-- {{ count2Way }}</h2>
+
+
+
+<div class='card-container'>
+      <card *ngFor = "let i of [1,2,3,4,5,6]" [countFromParent]="countInParent"  (changeCountValue) = "setHighValue($event)"></card>
+</div>
